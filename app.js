@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 
 app.get('/playVideo', (req, res) => { // this route will help to play the video
 try {
+    console.log(req.headers)
     const range = req.headers.range;
     if(!range) return res.status(400).send('Range Not Found');
     const videoPath = path.join(__dirname, 'videos','tom&jerry.mp4');
