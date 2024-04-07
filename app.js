@@ -19,7 +19,7 @@ try {
     if(!range) return res.status(400).send('Range Not Found');
     const videoPath = path.join(__dirname, 'videos','tom&jerry.mp4');
     const videoSize = fs.statSync(videoPath).size;
-    const CHUNK_SIZE = 10**6; // 1MB
+    const CHUNK_SIZE = 1024 * 1024; // 1MB
     const start = Number(range.replace(/\D/g, '')); // remove non-digit characters
     const end = Math.min(start + CHUNK_SIZE, videoSize + 1); 
     const contentLength = end - start + 1;
